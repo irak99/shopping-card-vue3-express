@@ -5,6 +5,9 @@ import store from "./store";
 
 import "@/assets/css/style.css";
 
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3000";
+
 createApp(App)
   .use(store)
   .use(router)
