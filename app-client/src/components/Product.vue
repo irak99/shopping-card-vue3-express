@@ -46,8 +46,8 @@
       </button>
     </div>
     <div class="px-5 py-3">
-      <h3>{{ product.title }}</h3>
-      <span>{{ product.price }} $</span>
+      <h3 class="text-gray-700 uppercase font-medium">{{ product.title }}</h3>
+      <span class="text-gray-600 mt-2 font-medium">{{ product.price }} $</span>
     </div>
   </div>
 </template>

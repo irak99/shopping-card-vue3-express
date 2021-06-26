@@ -1,7 +1,11 @@
 <template>
   <div>
     <NavBar />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="router" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 <script>
@@ -14,24 +18,18 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.router-enter-from,
+.router-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
 }
-
-#nav {
-  padding: 30px;
+.router-enter-active,
+.router-leave-active {
+  transition: all 0.3s ease;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.router-enter-to,
+.router-leave-from {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>
